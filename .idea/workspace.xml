@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e88a6c05-500d-4ad6-b427-d8145292f01b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/src/output.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/src/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servers-ui/tailwind.config.js" beforeDir="false" />
-    </list>
+    <list default="true" id="e88a6c05-500d-4ad6-b427-d8145292f01b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -460,7 +449,7 @@
       <workItem from="1712932066909" duration="931000" />
       <workItem from="1712944075417" duration="22329000" />
       <workItem from="1713084981835" duration="7652000" />
-      <workItem from="1713096481327" duration="19680000" />
+      <workItem from="1713096481327" duration="19866000" />
     </task>
     <servers />
   </component>
