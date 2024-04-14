@@ -8,7 +8,7 @@ Software Engineer
 
 ## Project
 
-[![hcib-poc](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/symfony.yml/badge.svg?branch=main)](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/symfony.yml)
+[![HCIB-POC](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/hcib-poc-workflow.yml/badge.svg)](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/hcib-poc-workflow.yml)
 
 This project was created to submit the code challenge for HCIB.
 
