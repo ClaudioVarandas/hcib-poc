@@ -1,0 +1,17 @@
+api_login_check:
+    path: /api/login_check
+
+api_user_store:
+    path: /api/registration
+    controller: App\Controller\RegistrationController
+    methods:    post
+
+api_get_stock:
+    path: /api/stock
+    controller: App\Controller\StockController::show
+    methods:    get|head
+
+api_list_history:
+    path: /api/history
+    controller: App\Controller\HistoryController::index
+    methods:    get|head

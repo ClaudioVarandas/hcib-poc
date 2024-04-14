@@ -1,0 +1,67 @@
+version: '3.9'
+services:
+
+  api:
+    hostname: api
+    container_name: hcib-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - dev-default
+    environment:
+      - PHP_VERSION="8.2"
+    volumes:
+      - ./stocks-api:/api
+
+  nginx:
+    image: nginx:1.25-alpine3.18
+    container_name: hcib-nginx
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./stocks-api:/api
+    depends_on:
+      - api
+    networks:
+      - dev-default
+    ports:
+      - '8181:8181'
+
+  db:
+    image: postgres:16.2-alpine3.18
+    container_name: hcib-db
+    environment:
+      POSTGRES_DB: 'stocks_api'
+      POSTGRES_PASSWORD: 'hcib'
+      POSTGRES_USER: 'hcib'
+      PGDATA: /var/lib/postgresql/data/db-files/
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/postgres/postgres.conf:/etc/postgresql/postgresql.conf
+    networks:
+      - dev-default
+    ports:
+      - '5439:5432'
+
+  rmq:
+    image: rabbitmq:3.13.1-management-alpine
+    container_name: hcib-rmq
+    environment:
+      RABBITMQ_DEFAULT_PASS: 'hcib'
+      RABBITMQ_DEFAULT_USER: 'hcib'
+      RABBITMQ_DEFAULT_VHOST: 'hcib_poc'
+    volumes:
+      - ./docker/rmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    networks:
+      - dev-default
+    ports:
+      - '15679:15672'
+
+volumes:
+  db-data:
+    name: hcbi-db-volume
+
+networks:
+  dev-default:
+    name: dev-network
