@@ -8,7 +8,7 @@ Software Engineer
 
 ## Project
 
-[![hcib-poc](https://github.com/ClaudioVarandas/lws-poc/actions/workflows/lws-poc.yml/badge.svg)](https://github.com/ClaudioVarandas/lws-poc/actions/workflows/lws-poc.yml)
+[![hcib-poc](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/symfony.yml/badge.svg?branch=main)](https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/symfony.yml)
 
 This project was created to submit the code challenge for HCIB.
 
@@ -25,7 +25,7 @@ Tech stack:
 Repository:
 
 The souce code repository is available here :
-https://github.com/ClaudioVarandas/lws-poc
+`https://github.com/ClaudioVarandas/hcib-poc`
 
 ## How to setup
 
