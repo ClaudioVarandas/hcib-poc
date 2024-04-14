@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Symfony
+name: HCIB-POC
 
 on:
   push:
@@ -26,6 +26,7 @@ jobs:
         php-version: '8.1'
     - uses: actions/checkout@v3
     - name: Copy .env.test.local
+      working-directory: ./stocks-api
       run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
     - name: Cache Composer packages
       id: composer-cache
@@ -36,12 +37,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
     - name: Install Dependencies
+      working-directory: ./stocks-api
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Create Database
+      working-directory: ./stocks-api
       run: |
         mkdir -p data
         touch data/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
+      working-directory: ./stocks-api
       run: vendor/bin/phpunit
