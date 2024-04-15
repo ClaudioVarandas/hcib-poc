@@ -8,6 +8,7 @@ use Phalcon\Filter\Validation\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -26,8 +27,11 @@ class RegistrationController extends AbstractController
 
         $user = $userRepository->findOneBy(['email' => $createUserDto->email]);
 
-        if($user){
-            return $this->json(['message' => 'User already exist with that criteria.'],400);
+        if ($user) {
+            return $this->json(
+                ['message' => 'User already exist with that criteria.'],
+                Response::HTTP_BAD_REQUEST
+            );
         }
 
         $user = new User();

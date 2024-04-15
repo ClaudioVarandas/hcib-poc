@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\HistoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Context\Normalizer\ObjectNormalizerContextBuilder;
 
 class HistoryController extends AbstractController
@@ -25,6 +26,6 @@ class HistoryController extends AbstractController
             ->withGroups('list_history')
             ->toArray();
 
-        return $this->json($data,200,[],$context);
+        return $this->json($data, Response::HTTP_OK, [], $context);
     }
 }
