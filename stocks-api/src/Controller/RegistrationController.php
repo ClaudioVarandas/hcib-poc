@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Dto\RegistrationDto;
+use App\Repository\UserRepository;
 use Phalcon\Filter\Validation\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,9 +19,16 @@ class RegistrationController extends AbstractController
         #[MapRequestPayload] RegistrationDto $createUserDto,
         ManagerRegistry $doctrine,
         Request $request,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
+        UserRepository $userRepository
     ): JsonResponse {
         $em = $doctrine->getManager();
+
+        $user = $userRepository->findOneBy(['email' => $createUserDto->email]);
+
+        if($user){
+            return $this->json(['message' => 'User already exist with that criteria.'],400);
+        }
 
         $user = new User();
         $hashedPassword = $passwordHasher->hashPassword(

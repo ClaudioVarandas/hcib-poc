@@ -27,7 +27,7 @@ RUN set -eux \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && true \
     && docker-php-ext-install pdo pdo_pgsql \
-    && true  \
+    && true \
 # mlocati
 RUN chmod +x /usr/local/bin/install-php-extension \
     && true \
