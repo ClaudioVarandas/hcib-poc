@@ -32,6 +32,7 @@ class StockController extends AbstractController
 
         try {
             $responseData = $this->client->getGlobalQuote($symbol);
+
             $globalQuoteData = $responseData["Global Quote"] ?? null;
 
             if (empty($globalQuoteData)) {

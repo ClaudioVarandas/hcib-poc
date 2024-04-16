@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Controller;
+namespace App\Tests\Funcional\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -10,8 +10,8 @@ class RegistrationControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/api/registration',[
-            'name' => 'bob',
-            'email' => 'bob@ggg.com',
+            'name' => 'zed',
+            'email' => 'zed@ggg.com',
             'password' => '123'
         ]);
 
@@ -29,8 +29,8 @@ class RegistrationControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/api/registration',[
-            'name' => 'bob',
-            'email' => 'bob@ggg.com',
+            'name' => 'zed',
+            'email' => 'zed@ggg.com',
             'password' => '123'
         ]);
 
@@ -42,8 +42,8 @@ class RegistrationControllerTest extends WebTestCase
         $this->assertStringContainsString('{"message":"Registered Successfully"}', $data);
 
         $client->request('POST', '/api/registration',[
-            'name' => 'bob',
-            'email' => 'bob@ggg.com',
+            'name' => 'zed',
+            'email' => 'zed@ggg.com',
             'password' => '123'
         ]);
         $response = $client->getResponse();

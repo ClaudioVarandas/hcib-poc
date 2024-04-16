@@ -9,13 +9,17 @@ use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class AlphaVantageClient
 {
     private const BASE_URI = "https://www.alphavantage.co";
     private string|null $apiKey;
 
-    public function __construct(ParameterBagInterface $params)
+    public function __construct(
+        ParameterBagInterface $params,
+        private readonly HttpClientInterface $client
+    )
     {
         $this->apiKey = $params->get('alpha_vantage_api_key');
     }
@@ -35,7 +39,7 @@ class AlphaVantageClient
             $this->apiKey
         );
 
-        $response = HttpClient::create()->request('GET', $url);
+        $response = $this->client->request('GET', $url);
 
         return $response->toArray();
     }

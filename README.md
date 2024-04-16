@@ -136,7 +136,7 @@ should return the list of entries saved in the database, showing the latest entr
 The following features are optional to implement, but if you do, you'll be ranked higher in our
 evaluation process.
 
-- [ ] Add unit tests, and integration tests for the endpoints.
+- [x] Add unit tests, and integration tests for the endpoints.
 - [x] Use RabbitMQ to send the email asynchronously.
 - [x] Use JWT instead of basic authentication for endpoints.
 - [x] Containerize the app.
@@ -152,4 +152,11 @@ There is also available , in the doc folder , a postman collection to be importe
 
 ## Tests
 
-TODO
+### Setup 
+
+```sh
+php bin/console --env=test doctrine:database:create
+php bin/console --env=test doctrine:schema:create
+php bin/console --env=test doctrine:fixtures:load
+```
+

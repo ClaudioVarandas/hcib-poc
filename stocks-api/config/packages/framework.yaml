@@ -28,7 +28,6 @@ framework:
         #    paths:
         #        - "%kernel.project_dir%/config/validation/"
 
-
 when@test:
     framework:
         test: true
