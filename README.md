@@ -27,6 +27,8 @@ Repository:
 The souce code repository is available here :
 `https://github.com/ClaudioVarandas/hcib-poc`
 
+CI Workflow : https://github.com/ClaudioVarandas/hcib-poc/actions/workflows/hcib-poc-workflow.yml
+
 ## How to setup
 
 #### Requirements
@@ -48,16 +50,14 @@ The souce code repository is available here :
   
 #### Urls 
 
-```text
-rmq
-http://localhost:15679/#/queues
+RabbitMQ management :
+`http://localhost:15679/#/queues`
 
-app
-http://localhost:8181
-```
+API Base URI : `http://localhost:8181`
 
-#### Usefull commands
+Postman collection : `doc/HCIB-POC.postman_collection.json`
 
+#### Useful commands
 
 Consuming Messages (Running the Worker):
 
