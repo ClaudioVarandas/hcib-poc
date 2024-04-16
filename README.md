@@ -85,12 +85,12 @@ Service            |            | Container Name | Ports (ext:int)
 
 ### Mandatory
 
-- [x] The application must use an SQL database to store users and record logs of past
+- :white_check_mark: The application must use an SQL database to store users and record logs of past
 requests.
-- [x] The application must be able to authenticate registered users.
-- [x] The application must have these three endpoints:
-- [x] An endpoint to create a new User, storing the email and information to log in later.
-- [x] An endpoint to request a stock quote, like this:
+- :white_check_mark: The application must be able to authenticate registered users.
+- :white_check_mark: The application must have these three endpoints:
+- :white_check_mark: An endpoint to create a new User, storing the email and information to log in later.
+- :white_check_mark: An endpoint to request a stock quote, like this:
 
 `GET /stock?q=IBM`
 
@@ -104,9 +104,9 @@ requests.
 }
 ```
 
-- [x] The same endpoint must additionally send an email with the same information to the user who
+- :white_check_mark: The same endpoint must additionally send an email with the same information to the user who
 requested the quote.
-- [x] An endpoint to retrieve the history of queries made to the API service by that user. The endpoint
+- :white_check_mark: An endpoint to retrieve the history of queries made to the API service by that user. The endpoint
 should return the list of entries saved in the database, showing the latest entries first:
 `GET /history`
 
@@ -136,12 +136,12 @@ should return the list of entries saved in the database, showing the latest entr
 The following features are optional to implement, but if you do, you'll be ranked higher in our
 evaluation process.
 
-- [x] :white_check_mark: Add unit tests, and integration tests for the endpoints.
-- [x] :white_check_mark: Use RabbitMQ to send the email asynchronously.
-- [x] Use JWT instead of basic authentication for endpoints.
-- [x] Containerize the app.
-- [x] Postman Collection.
-- [ ] Creation of a simple frontend using Vue to interact with the API.
+- :white_check_mark: Add unit tests, and integration tests for the endpoints.
+- :white_check_mark: Use RabbitMQ to send the email asynchronously.
+- :white_check_mark: Use JWT instead of basic authentication for endpoints.
+- :white_check_mark: Containerize the app.
+- :white_check_mark: Postman Collection.
+- :eight_pointed_black_star: Creation of a simple frontend using Vue to interact with the API.
 
 
 ## Postman
