@@ -49,7 +49,7 @@ jobs:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
       working-directory: ./stocks-api
       run: |
-        "php bin/console --env=test doctrine:database:create" \
-        "php bin/console --env=test doctrine:schema:create" \
-        "php bin/console --env=test doctrine:fixtures:load -n" \
-        vendor/bin/phpunit \
+        php bin/console --env=test doctrine:database:create \
+        php bin/console --env=test doctrine:schema:create \
+        php bin/console --env=test doctrine:fixtures:load -n \
+        php bin/phpunit --stop-on-failure
