@@ -136,8 +136,8 @@ should return the list of entries saved in the database, showing the latest entr
 The following features are optional to implement, but if you do, you'll be ranked higher in our
 evaluation process.
 
-- [x] Add unit tests, and integration tests for the endpoints.
-- [x] Use RabbitMQ to send the email asynchronously.
+- [x] :white_check_mark: Add unit tests, and integration tests for the endpoints.
+- [x] :white_check_mark: Use RabbitMQ to send the email asynchronously.
 - [x] Use JWT instead of basic authentication for endpoints.
 - [x] Containerize the app.
 - [x] Postman Collection.
