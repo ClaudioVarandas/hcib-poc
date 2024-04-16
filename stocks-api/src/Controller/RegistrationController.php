@@ -18,33 +18,19 @@ class RegistrationController extends AbstractController
 {
     public function __invoke(
         #[MapRequestPayload] RegistrationDto $createUserDto,
-        ManagerRegistry $doctrine,
         Request $request,
-        UserPasswordHasherInterface $passwordHasher,
         UserRepository $userRepository
     ): JsonResponse {
-        $em = $doctrine->getManager();
-
         $user = $userRepository->findOneBy(['email' => $createUserDto->email]);
 
         if ($user) {
             return $this->json(
-                ['message' => 'User already exist with that criteria.'],
+                ['message' => 'Account already exist.'],
                 Response::HTTP_BAD_REQUEST
             );
         }
 
-        $user = new User();
-        $hashedPassword = $passwordHasher->hashPassword(
-            $user,
-            $createUserDto->password
-        );
-        $user->setPassword($hashedPassword);
-        $user->setEmail($createUserDto->email);
-        $user->setName($createUserDto->name);
-
-        $em->persist($user);
-        $em->flush();
+        $userRepository->createUser($createUserDto);
 
         return $this->json(['message' => 'Registered Successfully']);
     }

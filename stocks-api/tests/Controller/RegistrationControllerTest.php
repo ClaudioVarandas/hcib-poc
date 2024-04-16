@@ -17,6 +17,7 @@ class RegistrationControllerTest extends WebTestCase
 
         $this->assertResponseIsSuccessful();
 
+
         $response = $client->getResponse();
         $data = $response->getContent();
 
@@ -50,6 +51,6 @@ class RegistrationControllerTest extends WebTestCase
 
         $this->assertResponseStatusCodeSame(400);
 
-        $this->assertStringContainsString('{"message":"User already exist with that criteria."}', $data);
+        $this->assertStringContainsString('{"message":"Account already exist."}', $data);
     }
 }
